@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    CharacterController _player;
+    BunnyController _player;
     Rigidbody2D _rigidbody;
     public GameObject explosion;
     public int scoreValueMin = 10;
@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
 
       void Start()
     {
-        _player = FindObjectOfType<CharacterController>();
+        _player = FindObjectOfType<BunnyController>();
         _rigidbody = GetComponent<Rigidbody2D>();
         //_audiosource = GetComponent<AudioSource>();
     }

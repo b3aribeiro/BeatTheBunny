@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class CharacterController : MonoBehaviour
+public class BunnyController : MonoBehaviour
 {
     int speed = 5;
     public int health = 3;
