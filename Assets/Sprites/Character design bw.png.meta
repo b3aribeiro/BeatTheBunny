@@ -1,0 +1,697 @@
+fileFormatVersion: 2
+guid: 8ff2224dcd699467da8a766285d3666c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8324333868535701030
+    second: Character design bw_0
+  - first:
+      213: 4814754144907516357
+    second: Character design bw_1
+  - first:
+      213: -4143438034092937542
+    second: Character design bw_2
+  - first:
+      213: 3762238782985483929
+    second: Character design bw_3
+  - first:
+      213: 1682522496560625680
+    second: Character design bw_4
+  - first:
+      213: -4702610798380294349
+    second: Character design bw_5
+  - first:
+      213: 6048240899311435262
+    second: Character design bw_6
+  - first:
+      213: -2576547175984929008
+    second: Character design bw_7
+  - first:
+      213: -1145241929007639115
+    second: Character design bw_8
+  - first:
+      213: 476140891323713264
+    second: Character design bw_9
+  - first:
+      213: 4936518217200656544
+    second: Character design bw_10
+  - first:
+      213: 2295129827753643600
+    second: Character design bw_11
+  - first:
+      213: 4761932909425436641
+    second: Character design bw_12
+  - first:
+      213: -8153081321674225757
+    second: Character design bw_13
+  - first:
+      213: -4435464112776973830
+    second: Character design bw_14
+  - first:
+      213: -8275219221967527588
+    second: Character design bw_15
+  - first:
+      213: 245947645296215301
+    second: Character design bw_16
+  - first:
+      213: 3755011662202356189
+    second: Character design bw_17
+  - first:
+      213: -1116054177928760786
+    second: Character design bw_18
+  - first:
+      213: -4089395898010095457
+    second: Character design bw_19
+  - first:
+      213: -1979012631296016134
+    second: Character design bw_20
+  - first:
+      213: 2593547076558411752
+    second: Character design bw_21
+  - first:
+      213: -8688429943439851093
+    second: Character design bw_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 400
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Character design bw_0
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 7709
+        width: 439
+        height: 767
+      alignment: 9
+      pivot: {x: 0.47394618, y: 0.4668561}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad12d2663760a7c80800000000000000
+      internalID: -8324333868535701030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_1
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 8377
+        width: 120
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c95d08926171d240800000000000000
+      internalID: 4814754144907516357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 6624
+        width: 418
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe2c059f0d8f76c0800000000000000
+      internalID: -4143438034092937542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_3
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 6612
+        width: 430
+        height: 802
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9963c0c6d38263430800000000000000
+      internalID: 3762238782985483929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_4
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 7489
+        width: 99
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0187916db45895710800000000000000
+      internalID: 1682522496560625680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_5
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 6686
+        width: 561
+        height: 796
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f50a5f468fcbeb0800000000000000
+      internalID: -4702610798380294349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_6
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 7542
+        width: 87
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd727f8d0bafe350800000000000000
+      internalID: 6048240899311435262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_7
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 7533
+        width: 111
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017e16c9ef34e3cd0800000000000000
+      internalID: -2576547175984929008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6802
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5dd9788884b10f0800000000000000
+      internalID: -1145241929007639115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_9
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 5407
+        width: 521
+        height: 820
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f643623e979b9600800000000000000
+      internalID: 476140891323713264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_10
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 5457
+        width: 439
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a06d7be929028440800000000000000
+      internalID: 4936518217200656544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_11
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 4435
+        width: 656
+        height: 798
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ec8a01b60f9df10800000000000000
+      internalID: 2295129827753643600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_12
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 4368
+        width: 430
+        height: 803
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e7ab8650c8c51240800000000000000
+      internalID: 4761932909425436641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_13
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 5159
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a74cbc1cbf6ade80800000000000000
+      internalID: -8153081321674225757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_14
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 4757
+        width: 99
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af17fe7b3e01272c0800000000000000
+      internalID: -4435464112776973830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_15
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 4662
+        width: 89
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51242c26f3882d80800000000000000
+      internalID: -8275219221967527588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_16
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 4604
+        width: 111
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505893f8418c96300800000000000000
+      internalID: 245947645296215301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_17
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 4559
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1450d363b7c1430800000000000000
+      internalID: 3755011662202356189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_18
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 3168
+        width: 459
+        height: 882
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22377663aaf280f0800000000000000
+      internalID: -1116054177928760786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_19
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 2175
+        width: 439
+        height: 803
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f903b29e81c8f37c0800000000000000
+      internalID: -4089395898010095457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_20
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 1014
+        width: 455
+        height: 884
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af007914f722984e0800000000000000
+      internalID: -1979012631296016134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_21
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 1078
+        width: 459
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7548e23512ef320800000000000000
+      internalID: 2593547076558411752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character design bw_22
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 443
+        height: 830
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1866deffe7c6780800000000000000
+      internalID: -8688429943439851093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Character design bw_9: 476140891323713264
+      Character design bw_2: -4143438034092937542
+      Character design bw_22: -8688429943439851093
+      Character design bw_21: 2593547076558411752
+      Character design bw_4: 1682522496560625680
+      Character design bw_19: -4089395898010095457
+      Character design bw_20: -1979012631296016134
+      Character design bw_8: -1145241929007639115
+      Character design bw_13: -8153081321674225757
+      Character design bw_18: -1116054177928760786
+      Character design bw_3: 3762238782985483929
+      Character design bw_6: 6048240899311435262
+      Character design bw_0: -8324333868535701030
+      Character design bw_14: -4435464112776973830
+      Character design bw_12: 4761932909425436641
+      Character design bw_16: 245947645296215301
+      Character design bw_17: 3755011662202356189
+      Character design bw_1: 4814754144907516357
+      Character design bw_5: -4702610798380294349
+      Character design bw_10: 4936518217200656544
+      Character design bw_15: -8275219221967527588
+      Character design bw_7: -2576547175984929008
+      Character design bw_11: 2295129827753643600
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
