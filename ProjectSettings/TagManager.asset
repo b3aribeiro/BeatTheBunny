@@ -8,6 +8,8 @@ TagManager:
   - Water
   - FinishLine
   - Sword
+  - Bullet
+  - CowboyBullet
   layers:
   - Default
   - TransparentFX

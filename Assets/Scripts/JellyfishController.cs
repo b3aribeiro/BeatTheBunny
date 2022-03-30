@@ -29,10 +29,14 @@ public class JellyfishController : MonoBehaviour
     string jumpBtn;
     string xAxisBtn;
 
+    AudioSource _audioSource;
+    public AudioClip shootsound;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
 
         //player controller buttons
         atkBtn = "Attack" + playerNum;
@@ -73,6 +77,8 @@ public class JellyfishController : MonoBehaviour
             newBullet.GetComponent<Rigidbody2D>().AddForce(bulletDir);
 
             _animator.SetTrigger("Shoot");
+
+            _audioSource.PlayOneShot(shootsound);
         }
     }
 

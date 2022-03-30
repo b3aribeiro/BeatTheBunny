@@ -6,18 +6,20 @@ public class EnemyController : MonoBehaviour
 {
     BunnyController _player;
     Rigidbody2D _rigidbody;
+    AudioSource _audioSource;
     public GameObject explosion;
     public int scoreValueMin = 10;
     public int scoreValueMax = 25;
+    public int enemyHealth = 5;
+    public AudioClip hurtSound;
     
-    //AudioSource _audiosource;
-    //public AudioClip deathSound;
+    
 
       void Start()
     {
         _player = FindObjectOfType<BunnyController>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        //_audiosource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
    private void OnTriggerEnter2D(Collider2D other) {
        if(other.gameObject.CompareTag("Sword")){
@@ -31,6 +33,20 @@ public class EnemyController : MonoBehaviour
 
            Destroy(gameObject);
            //Instantiate(explosion, transform.position, Quaternion.identity)
+       }
+
+        if(other.gameObject.CompareTag("Bullet")){
+           
+           enemyHealth --;
+
+           if(enemyHealth < 1){
+               Destroy(gameObject);
+           } 
+           
+       }
+
+       if(other.gameObject.CompareTag("Player")){
+           _audioSource.PlayOneShot(hurtSound);
        }
    }
 }

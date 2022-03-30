@@ -44,10 +44,14 @@ public class BunnyController : MonoBehaviour
     string jumpBtn;
     string xAxisBtn;
 
+    AudioSource _audioSource;
+    public AudioClip shootsound;
+
     void Start()
     {
       _rigidbody = GetComponent<Rigidbody2D>();
-      _animator = GetComponent<Animator>();  
+      _animator = GetComponent<Animator>(); 
+      _audioSource = GetComponent<AudioSource>(); 
 
         //player controller buttons
         atkBtn = "Attack" + playerNum;
@@ -84,6 +88,7 @@ public class BunnyController : MonoBehaviour
             {
                 _animator.SetTrigger("Fight");
                 timeBetweenAtk = beginAtk;
+                _audioSource.PlayOneShot(shootsound);
             }
 
         } else {

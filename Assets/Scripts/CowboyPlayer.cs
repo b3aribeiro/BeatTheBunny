@@ -16,7 +16,7 @@ public class CowboyPlayer : MonoBehaviour
     public LayerMask groundLayer;
     public Transform feetPos;
     public Transform bulletPos;
-    public GameObject youDie;
+    //public GameObject youDie;
 
     bool alive = true;
     bool hurt = false;
@@ -28,10 +28,14 @@ public class CowboyPlayer : MonoBehaviour
     string jumpBtn;
     string xAxisBtn;
 
+    AudioSource _audioSource;
+    public AudioClip shootsound;
+
     void Start()
     {
         _rigidbody =  GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     
         
         //player controller buttons
@@ -66,11 +70,15 @@ public class CowboyPlayer : MonoBehaviour
         {
             
             //bullet 
+            
             Vector2 bulletDir = new Vector2(transform.localScale.x, 0);
             bulletDir *= bulletForce;
             GameObject newBullet = Instantiate(bulletPrefab, bulletPos.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(bulletDir);
             _animator.SetTrigger("Shoot");
+
+            _audioSource.PlayOneShot(shootsound);
+            
             
         }
         
@@ -113,7 +121,7 @@ public class CowboyPlayer : MonoBehaviour
             {
                 _animator.SetTrigger("Die");
                 alive = false; 
-                youDie.SetActive(true);
+                //youDie.SetActive(true);
             }
             else {
                 StartCoroutine(GotHurt());
