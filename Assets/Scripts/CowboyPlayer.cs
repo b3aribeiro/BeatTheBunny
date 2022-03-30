@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CowboyPlayer : MonoBehaviour
 {
+    public int playerNum = 3;
     public int speed = 5;
     public int bulletForce = 400;
     public int jumpForce = 400;
@@ -23,12 +24,20 @@ public class CowboyPlayer : MonoBehaviour
     
     Rigidbody2D _rigidbody;
     Animator  _animator;
+    string atkBtn;
+    string jumpBtn;
+    string xAxisBtn;
 
     void Start()
     {
         _rigidbody =  GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     
+        
+        //player controller buttons
+        atkBtn = "Attack" + playerNum;
+        jumpBtn = "Jump" + playerNum;
+        xAxisBtn = "Horizontal" + playerNum;
     }
 
     
@@ -41,7 +50,7 @@ public class CowboyPlayer : MonoBehaviour
         
         
         //Move horizontally
-        float xSpeed = Input.GetAxis("Horizontal") * speed; 
+        float xSpeed = Input.GetAxis(xAxisBtn) * speed; 
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
         _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
 
@@ -53,7 +62,7 @@ public class CowboyPlayer : MonoBehaviour
         
 
         //Fire
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown(atkBtn))
         {
             
             //bullet 
@@ -68,7 +77,7 @@ public class CowboyPlayer : MonoBehaviour
 
         //Jump
         
-        if (grounded && Input.GetButtonDown("Vertical"))
+        if (grounded && Input.GetButtonDown(jumpBtn))
 
         {
             _animator.SetBool("Jump",true);

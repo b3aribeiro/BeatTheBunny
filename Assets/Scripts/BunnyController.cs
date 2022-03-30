@@ -6,6 +6,7 @@ using TMPro;
 
 public class BunnyController : MonoBehaviour
 {
+    public int playerNum = 1;
     int speed = 5;
     public int health = 3;
     
@@ -39,11 +40,19 @@ public class BunnyController : MonoBehaviour
 
     private float timeBetweenAtk;
     public float beginAtk = 0.3f;
+    string atkBtn;
+    string jumpBtn;
+    string xAxisBtn;
 
     void Start()
     {
       _rigidbody = GetComponent<Rigidbody2D>();
       _animator = GetComponent<Animator>();  
+
+        //player controller buttons
+        atkBtn = "Attack" + playerNum;
+        jumpBtn = "Jump" + playerNum;
+        xAxisBtn = "Horizontal" + playerNum;
     }
 
     async void Update()
@@ -51,7 +60,7 @@ public class BunnyController : MonoBehaviour
         if(!alive || hurt){ return; }
 
         //walking right and left
-        float xSpeed = Input.GetAxis("Horizontal") * speed;
+        float xSpeed = Input.GetAxis(xAxisBtn) * speed;
          _rigidbody.velocity = new Vector2 (xSpeed, _rigidbody.velocity.y);
         _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
         
@@ -62,7 +71,7 @@ public class BunnyController : MonoBehaviour
 
 
         //jumping
-        if (grounded && Input.GetButtonDown("Jump"))
+        if (grounded && Input.GetButtonDown(jumpBtn))
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0,jumpForce));
@@ -71,7 +80,7 @@ public class BunnyController : MonoBehaviour
        
         if(timeBetweenAtk <= 0)
         {
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetButtonDown(atkBtn))
             {
                 _animator.SetTrigger("Fight");
                 timeBetweenAtk = beginAtk;

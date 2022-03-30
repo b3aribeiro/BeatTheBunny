@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JellyfishController : MonoBehaviour
 {
+    public int playerNum = 2;
     int health = 5;
 
     int speed = 5;
@@ -24,11 +25,19 @@ public class JellyfishController : MonoBehaviour
     public bool grounded;
     public LayerMask groundLayer;
     public Transform feetPos;
+    string atkBtn;
+    string jumpBtn;
+    string xAxisBtn;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+
+        //player controller buttons
+        atkBtn = "Attack" + playerNum;
+        jumpBtn = "Jump" + playerNum;
+        xAxisBtn = "Horizontal" + playerNum;
     }
 
 
@@ -39,7 +48,7 @@ public class JellyfishController : MonoBehaviour
             return;
         }
 
-        float xSpeed = Input.GetAxis("Horizontal") * speed;
+        float xSpeed = Input.GetAxis(xAxisBtn) * speed;
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
         _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
 
@@ -49,13 +58,13 @@ public class JellyfishController : MonoBehaviour
             transform.localScale *= new Vector2(-1, 1);
         }
 
-        if (grounded && Input.GetButtonDown("Jump"))
+        if (grounded && Input.GetButtonDown(jumpBtn))
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown(atkBtn))
         {
             Vector2 bulletDir = new Vector2(transform.localScale.x, 0);
             bulletDir *= bulletForce;
