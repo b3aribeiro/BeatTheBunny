@@ -91,7 +91,7 @@ public class MapGeneration : MonoBehaviour
 
      void spawnEnemy(int x)
     {
-        enemyTest = Instantiate(enemyTest, new Vector2(x, height + 3), Quaternion.identity);
+        enemyTest = Instantiate(enemyTest, new Vector2(x, height + 1), Quaternion.identity);
         enemyTest.transform.parent = this.transform;
     }
 
