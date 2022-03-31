@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7387359071477588330}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.56, y: -0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7387359072105128941}
   m_RootOrder: 1
@@ -39,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7387359071961988012}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,8 +55,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7387359071961988013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.944, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7387359072105128941}
   m_RootOrder: 0
@@ -75,7 +77,7 @@ GameObject:
   - component: {fileID: 7387359072105128939}
   - component: {fileID: 7387359072105128938}
   - component: {fileID: 7387359072105128937}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: CowboyPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -92,6 +94,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.67, y: -1.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7387359071961988012}
   - {fileID: 7387359071477588330}
@@ -109,6 +112,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -151,7 +155,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &7387359072105128943
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -164,6 +168,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -180,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1eeb2e6cf6284e7d943ff489ee6929a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 3
   speed: 5
   bulletForce: 400
   jumpForce: 400
@@ -187,10 +193,10 @@ MonoBehaviour:
   grounded: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 72
   feetPos: {fileID: 7387359071961988012}
   bulletPos: {fileID: 7387359071477588330}
-  youDie: {fileID: 0}
+  shootsound: {fileID: 8300000, guid: 3abf1a25b16474e059c94df1b6010f27, type: 3}
 --- !u!50 &7387359072105128939
 Rigidbody2D:
   serializedVersion: 4
@@ -203,10 +209,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -225,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023272753, y: -0.059683442}
+  m_Offset: {x: -0.023272753, y: 0.039331675}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.47394618, y: 0.4668561}
@@ -236,7 +242,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9937663, y: 2.1646636}
+  m_Size: {x: 0.9937663, y: 1.9666333}
   m_EdgeRadius: 0
 --- !u!82 &7387359072105128937
 AudioSource:
@@ -248,9 +254,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 477910c02da404d1f8bba963264fbe52, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.72
+  m_Volume: 0.537
   m_Pitch: 1
   Loop: 0
   Mute: 0
