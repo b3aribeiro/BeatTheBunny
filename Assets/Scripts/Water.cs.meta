@@ -3,7 +3,9 @@ guid: ea6d6323b42904a0f9889158459a4cf6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - watersound: {fileID: 8300000, guid: 9035d3e10df6a4975b57392686da2237, type: 3}
+  - loseUI: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
