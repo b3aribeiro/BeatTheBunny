@@ -170,3 +170,7 @@ MonoBehaviour:
   explosion: {fileID: 0}
   scoreValueMin: 10
   scoreValueMax: 25
+  enemyHealth: 2
+  hurtSound: {fileID: 0}
+  alive: 1
+  hurt: 0

@@ -7,20 +7,25 @@ public class EnemyController : MonoBehaviour
     BunnyController _player;
     Rigidbody2D _rigidbody;
     AudioSource _audioSource;
+    Animator _animator;
     public GameObject explosion;
     public int scoreValueMin = 10;
     public int scoreValueMax = 25;
-    public int enemyHealth = 5;
+    public int enemyHealth = 2;
     public AudioClip hurtSound;
-    
-    
 
-      void Start()
+    public bool alive = true;
+    public bool hurt = false;
+
+
+    void Start()
     {
         _player = FindObjectOfType<BunnyController>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
     }
+
+
    private void OnTriggerEnter2D(Collider2D other) {
        if(other.gameObject.CompareTag("Sword")){
            //_audiosource.PlayOneShot(deathSound);
@@ -31,9 +36,16 @@ public class EnemyController : MonoBehaviour
             _player.AddScore(scoreValueMax);
            }
 
-           Destroy(gameObject);
-           //Instantiate(explosion, transform.position, Quaternion.identity)
-       }
+            enemyHealth--;
+
+            if (enemyHealth < 1)
+            {
+                Destroy(gameObject);
+            }
+
+            //Destroy(gameObject);
+            //Instantiate(explosion, transform.position, Quaternion.identity)
+        }
 
         if(other.gameObject.CompareTag("Bullet")){
            
@@ -49,4 +61,35 @@ public class EnemyController : MonoBehaviour
            _audioSource.PlayOneShot(hurtSound);
        }
    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (alive && !hurt && other.gameObject.CompareTag("Player"))
+        {
+
+
+            enemyHealth--;
+            if (enemyHealth < 1)
+            {
+                _animator.SetTrigger("Die");
+                alive = false;
+            }
+            else
+            {
+                StartCoroutine(GotHurt());
+            }
+        }
+
+    }
+
+    IEnumerator GotHurt()
+    {
+        hurt = true;
+        _animator.SetTrigger("Hurt");
+        _rigidbody.AddForce(new Vector2(-transform.localScale.x * 200, 200));
+        yield return new WaitForSeconds(.2f);
+        hurt = false;
+
+
+    }
 }
