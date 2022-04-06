@@ -8,15 +8,15 @@ public class JellyfishController : MonoBehaviour
     int health = 5;
 
     int speed = 5;
-    int jumpForce = 600;
-    int bulletForce = 600;
+    int jumpForce = 700;
+    //int bulletForce = 600;
 
     bool alive = true;
     bool hurt = false;
 
-    public GameObject bulletPrefab;
+    //public GameObject bulletPrefab;
 
-    public Transform spawnPoint;
+    //public Transform spawnPoint;
 
     Rigidbody2D _rigidbody;
 
@@ -25,13 +25,17 @@ public class JellyfishController : MonoBehaviour
     public bool grounded;
     public LayerMask groundLayer;
     public Transform feetPos;
-    string atkBtn;
+    //string atkBtn;
     string jumpBtn;
     string xAxisBtn;
 
     AudioSource _audioSource;
+
+    //public AudioClip shootsound;
+
     public AudioClip shootsound;
     public AudioClip jumpsound;
+
 
     void Start()
     {
@@ -40,7 +44,7 @@ public class JellyfishController : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
 
         //player controller buttons
-        atkBtn = "Attack" + playerNum;
+        //atkBtn = "Attack" + playerNum;
         jumpBtn = "Jump" + playerNum;
         xAxisBtn = "Horizontal" + playerNum;
     }
@@ -70,18 +74,18 @@ public class JellyfishController : MonoBehaviour
             _audioSource.PlayOneShot(jumpsound);
         }
 
-        if (Input.GetButtonDown(atkBtn))
-        {
-            Vector2 bulletDir = new Vector2(transform.localScale.x, 0);
-            bulletDir *= bulletForce;
+        //if (Input.GetButtonDown(atkBtn))
+        //{
+        //    //Vector2 bulletDir = new Vector2(transform.localScale.x, 0);
+        //    //bulletDir *= bulletForce;
 
-            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
-            newBullet.GetComponent<Rigidbody2D>().AddForce(bulletDir);
+        //    //GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
+        //    //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletDir);
 
-            _animator.SetTrigger("Shoot");
+        //    //_animator.SetTrigger("Shoot");
 
-            _audioSource.PlayOneShot(shootsound);
-        }
+        //    //_audioSource.PlayOneShot(shootsound);
+        //}
     }
 
     private void FixedUpdate()
