@@ -18,10 +18,12 @@ public class EnemyController : MonoBehaviour
     public bool hurt = false;
 
     public Animation starhurt;
+    GameManager _gameManager;
 
 
     void Start()
     {
+        _gameManager = FindObjectOfType<GameManager>();
         _player = FindObjectOfType<BunnyController>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
@@ -33,9 +35,9 @@ public class EnemyController : MonoBehaviour
            //_audiosource.PlayOneShot(deathSound);
            //Instantiate(explosion, transform.position, Quaternion.identity);
            if(_player.health < 3) {
-            _player.AddScore(scoreValueMin);
+           _gameManager.AddScore(scoreValueMin);
            } else {
-            _player.AddScore(scoreValueMax);
+            _gameManager.AddScore(scoreValueMax);
            }
 
             enemyHealth--;

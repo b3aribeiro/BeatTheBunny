@@ -7,27 +7,23 @@ using TMPro;
 public class BunnyController : MonoBehaviour
 {
     public int playerNum = 1;
-    int speed = 5;
+    public int speed = 5;
     public int health = 3;
-    
-    int score = 0;
-    int jumpForce = 300;
-    public bool grounded;
+    public int jumpForce = 300;
     public bool alive = true;
     public bool hurt = false;
+    public bool grounded;
     public LayerMask groundLayer;
     public Transform feetPos;
-
     Rigidbody2D _rigidbody;
     Animator _animator;
+    AudioSource _audioSource;
+    public AudioClip swooshsound;
+    public AudioClip jumpsound;
     public GameObject life1UI; 
     public GameObject life2UI; 
-    public GameObject life3UI; 
-    public GameObject loseUI; 
-    public GameObject winUI;   
+    public GameObject life3UI;  
     public GameObject bunnyCoinUI;   
-     public GameObject bunnyLifeUI;
-    public TextMeshProUGUI bunnyLifeTextUI;
     public TextMeshProUGUI bunnyCoinTextUI;
 
 
@@ -43,13 +39,11 @@ public class BunnyController : MonoBehaviour
     string atkBtn;
     string jumpBtn;
     string xAxisBtn;
-
-    AudioSource _audioSource;
-    public AudioClip shootsound;
-    public AudioClip jumpsound;
+    GameManager _gameManager;
 
     void Start()
     {
+      _gameManager = FindObjectOfType<GameManager>();
       _rigidbody = GetComponent<Rigidbody2D>();
       _animator = GetComponent<Animator>(); 
       _audioSource = GetComponent<AudioSource>(); 
@@ -90,7 +84,7 @@ public class BunnyController : MonoBehaviour
             {
                 _animator.SetTrigger("Fight");
                 timeBetweenAtk = beginAtk;
-                _audioSource.PlayOneShot(shootsound);
+                _audioSource.PlayOneShot(swooshsound);
             }
 
         } else {
@@ -100,6 +94,7 @@ public class BunnyController : MonoBehaviour
             //GameObject newBullet = Instatiate(bulletPrefab,transform.position, Quaternion.identity);
             //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletDirection); 
     }
+    
     void SwordOn(){
         swordRight.SetActive(true);
     }
@@ -124,24 +119,30 @@ public class BunnyController : MonoBehaviour
             if(health == 2)
             { 
             life3UI.SetActive(false);
-            //bunnyLifeTextUI.text = "♥♥";
             }
 
             if(health == 1)
             { 
             life2UI.SetActive(false);
-            //bunnyLifeTextUI.text = "♥";
             }
 
             if (health < 1){
                 life1UI.SetActive(false);
-                bunnyLifeTextUI.text = "=(";
                 _animator.SetTrigger("Die");
                 alive = false;
-                loseUI.SetActive(true);
-                StartCoroutine(LoadMainScreen());
 
             } else { StartCoroutine(GotHurt()); }
+        }
+
+        if(alive && !hurt && (other.gameObject.CompareTag("DangerZone") || other.gameObject.CompareTag("Water") ))
+        {
+            alive = false;
+            health = 0;
+            _animator.SetTrigger("Die");
+            life3UI.SetActive(false);
+            life2UI.SetActive(false);
+            life1UI.SetActive(false);
+            //StartCoroutine(LoadMainScreen());
         }
 
         if(alive && !hurt && other.gameObject.CompareTag("FinishLine"))
@@ -149,20 +150,14 @@ public class BunnyController : MonoBehaviour
            hurt = true;
            
            if(health < 3) {
-           AddScore(50);
+            //add score at GameManager
+            _gameManager.AddScore(50);
            } else {
-            AddScore(100);
+            _gameManager.AddScore(100);
            }
 
-            winUI.SetActive(true);
-            StartCoroutine(LoadMainScreen());
+            _gameManager.PlayersWon();
         }
-
-        // if(other.gameObject.CompareTag("Water"))
-        // {
-        //     loseUI.SetActive(true);
-        //     StartCoroutine(LoadMainScreen());
-        // }
 
     }
 
@@ -172,30 +167,15 @@ public class BunnyController : MonoBehaviour
         _animator.SetTrigger("Hurt");
 
         //knockback
-        _rigidbody.AddForce(new Vector2(-transform.localScale.x * 150, 150));
+        _rigidbody.AddForce(new Vector2(-transform.localScale.x * 250, 250));
         yield return new WaitForSeconds(.4f);
         hurt = false;
     }
 
     IEnumerator LoadMainScreen()
     {
-        bunnyLifeUI.SetActive(false);
-        bunnyCoinUI.SetActive(false);
-
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene("ProceduralMap");
-    }
-
-     public void AddScore(int addNum)
-    {
-        score += addNum;
-        bunnyCoinTextUI.text = "" + score;
-    }
-
-    public void SubScore(int subNum)
-    {
-        score -= subNum;
-        bunnyCoinTextUI.text = "" + score;
     }
 }

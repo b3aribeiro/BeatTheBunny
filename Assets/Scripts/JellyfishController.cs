@@ -5,40 +5,37 @@ using UnityEngine;
 public class JellyfishController : MonoBehaviour
 {
     public int playerNum = 2;
-    int health = 5;
+    public int health = 3;
 
-    int speed = 5;
-    int jumpForce = 700;
+    public int jumpForce = 700;
+
+    public int speed = 5;
     //int bulletForce = 600;
 
     bool alive = true;
     bool hurt = false;
-
-    //public GameObject bulletPrefab;
-
-    //public Transform spawnPoint;
-
-    Rigidbody2D _rigidbody;
-
-    Animator _animator;
-
     public bool grounded;
     public LayerMask groundLayer;
     public Transform feetPos;
-    //string atkBtn;
     string jumpBtn;
     string xAxisBtn;
-
+    //string atkBtn;
+    Rigidbody2D _rigidbody;
+    Animator _animator;
     AudioSource _audioSource;
-
-    //public AudioClip shootsound;
-
     public AudioClip shootsound;
-    public AudioClip jumpsound;
+    public AudioClip jumpsound;  
+    public GameObject life1UI; 
+    public GameObject life2UI; 
+    public GameObject life3UI; 
 
+    //public GameObject bulletPrefab;
+    //public Transform spawnPoint;
+    GameManager _gameManager;
 
     void Start()
     {
+         _gameManager = FindObjectOfType<GameManager>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
@@ -96,20 +93,55 @@ public class JellyfishController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (alive && !hurt && other.gameObject.CompareTag("Enemy"))
+        if(alive && !hurt && other.gameObject.CompareTag("Enemy"))
         {
-            
-            
             health--;
-            if (health < 1)
-            {
+
+            if(health == 2)
+            { 
+            life3UI.SetActive(false);
+            //bunnyLifeTextUI.text = "♥♥";
+            }
+
+            if(health == 1)
+            { 
+            life2UI.SetActive(false);
+            //bunnyLifeTextUI.text = "♥";
+            }
+
+            if (health < 1){
+                life1UI.SetActive(false);
                 _animator.SetTrigger("Die");
                 alive = false;
-            }
-            else
-            {
-                StartCoroutine(GotHurt());
-            }
+                //StartCoroutine(LoadMainScreen());
+
+            } else { StartCoroutine(GotHurt()); }
+        }
+
+        if(alive && !hurt && (other.gameObject.CompareTag("DangerZone") || other.gameObject.CompareTag("Water") ))
+        {
+            alive = false;
+            health = 0;
+            _animator.SetTrigger("Die");
+            life3UI.SetActive(false);
+            life2UI.SetActive(false);
+            life1UI.SetActive(false);
+            //StartCoroutine(LoadMainScreen());
+        }
+
+        if(alive && !hurt && other.gameObject.CompareTag("FinishLine"))
+        { 
+           hurt = true;
+           
+           if(health < 3) {
+            //add score at GameManager
+            _gameManager.AddScore(50);
+           } else {
+            _gameManager.AddScore(100);
+           }
+
+            //winUI.SetActive(true);
+            //StartCoroutine(LoadMainScreen());
         }
 
     }
