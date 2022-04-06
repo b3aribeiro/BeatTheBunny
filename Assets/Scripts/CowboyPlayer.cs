@@ -8,7 +8,7 @@ public class CowboyPlayer : MonoBehaviour
     public int playerNum = 3;
     public int speed = 5;
     public int bulletForce = 400;
-    public int jumpForce = 400;
+    public int jumpForce = 300;
     public GameObject bulletPrefab;
     
 
@@ -30,6 +30,7 @@ public class CowboyPlayer : MonoBehaviour
 
     AudioSource _audioSource;
     public AudioClip shootsound;
+    public AudioClip jumpsound;
 
     void Start()
     {
@@ -92,6 +93,7 @@ public class CowboyPlayer : MonoBehaviour
             _rigidbody.AddForce(new Vector2(0,jumpForce));
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             
+            _audioSource.PlayOneShot(jumpsound);
         }
 
 

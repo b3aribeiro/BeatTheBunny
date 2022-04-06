@@ -11,7 +11,7 @@ public class BunnyController : MonoBehaviour
     public int health = 3;
     
     int score = 0;
-    int jumpForce = 400;
+    int jumpForce = 300;
     public bool grounded;
     public bool alive = true;
     public bool hurt = false;
@@ -46,6 +46,7 @@ public class BunnyController : MonoBehaviour
 
     AudioSource _audioSource;
     public AudioClip shootsound;
+    public AudioClip jumpsound;
 
     void Start()
     {
@@ -79,6 +80,7 @@ public class BunnyController : MonoBehaviour
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0,jumpForce));
+            _audioSource.PlayOneShot(jumpsound);
         }
 
        
@@ -156,11 +158,11 @@ public class BunnyController : MonoBehaviour
             StartCoroutine(LoadMainScreen());
         }
 
-        if(other.gameObject.CompareTag("Water"))
-        {
-            loseUI.SetActive(true);
-            StartCoroutine(LoadMainScreen());
-        }
+        // if(other.gameObject.CompareTag("Water"))
+        // {
+        //     loseUI.SetActive(true);
+        //     StartCoroutine(LoadMainScreen());
+        // }
 
     }
 
