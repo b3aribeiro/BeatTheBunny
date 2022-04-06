@@ -30,7 +30,12 @@ public class JellyfishController : MonoBehaviour
     string xAxisBtn;
 
     AudioSource _audioSource;
+
     //public AudioClip shootsound;
+
+    public AudioClip shootsound;
+    public AudioClip jumpsound;
+
 
     void Start()
     {
@@ -66,6 +71,7 @@ public class JellyfishController : MonoBehaviour
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
+            _audioSource.PlayOneShot(jumpsound);
         }
 
         //if (Input.GetButtonDown(atkBtn))
