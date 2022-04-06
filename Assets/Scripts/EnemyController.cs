@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     public bool alive = true;
     public bool hurt = false;
 
+    public Animation starhurt;
+
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class EnemyController : MonoBehaviour
            }
 
             enemyHealth--;
+            starhurt.Play();
 
             if (enemyHealth < 1)
             {
@@ -64,11 +67,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (alive && !hurt && other.gameObject.CompareTag("Player"))
+        if (alive && !hurt && other.gameObject.CompareTag("Sword"))
         {
 
-
+            hurt = true;
             enemyHealth--;
+            _animator.SetTrigger("Hurt");
+
             if (enemyHealth < 1)
             {
                 _animator.SetTrigger("Die");
@@ -85,6 +90,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator GotHurt()
     {
         hurt = true;
+        starhurt.Play();
         _animator.SetTrigger("Hurt");
         _rigidbody.AddForce(new Vector2(-transform.localScale.x * 200, 200));
         yield return new WaitForSeconds(.2f);
