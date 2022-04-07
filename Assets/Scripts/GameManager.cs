@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     //It aslo handles the win and lose conditions, and the restarting of the game.
 
     int playersInGame = 3;
-    int[] playersHealth;
+    public int[] playersHealth;
     public bool roundOver = false;
     public int[] playersHealthBars;
     int score = 0;
@@ -23,31 +23,26 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        playersHealthBars = new int[playersInGame];
+        playersHealth[0] = 3;
+        playersHealth[1] = 3;
+        playersHealth[2] = 3;
 
-        for(int i = 0; i < playersHealth.Length; i++)
-        {
-            playersHealth[i] = 3;
-        }
     }
 
    
     public bool UpdateHealth(int playerNum, int damage)
     {
-        playersHealthBars[playerNum]--;
+        playersHealth[playerNum] -= damage;
         //healthText[playerNum].text = playersHealthBars[playerNum].ToString();
         //healthBars[playerNum].localScale = new Vector3(playersHealthBars[playerNum] / 100f, 1, 1);
 
-        if(playersHealthBars[playerNum] == 2 )
+        if(playersHealth[playerNum]-1 > 0 )
         {
             return true;
-        } else if(playersHealthBars[playerNum] == 1 )
+        }  else
         {
-            return true;
-        } else
-        {
-            CheckRoundOver();
             playersInGame--;
+            CheckRoundOver();
             return false;
         }
 
@@ -88,7 +83,7 @@ public class GameManager : MonoBehaviour
 
      IEnumerator LoadMainScreen()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         SceneManager.LoadScene("ProceduralMap");
     }

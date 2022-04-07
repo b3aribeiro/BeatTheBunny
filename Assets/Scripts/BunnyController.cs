@@ -24,15 +24,15 @@ public class BunnyController : MonoBehaviour
     public GameObject life2UI; 
     public GameObject life3UI;  
     public GameObject bunnyCoinUI;   
+    public GameObject swordRight;
     public TextMeshProUGUI bunnyCoinTextUI;
-
+    public Collider2D _collider;
 
     //if creating a bullet, make it a trigger 
     //add rigid body, set gravity to 0
     //public GameObject bulletPrefab;
     //int bulletForce = 600;
 
-    public GameObject swordRight;
 
     private float timeBetweenAtk;
     public float beginAtk = 0.3f;
@@ -43,6 +43,8 @@ public class BunnyController : MonoBehaviour
 
     void Start()
     {
+        _collider = GetComponent<Collider2D>();
+
       _gameManager = FindObjectOfType<GameManager>();
       _rigidbody = GetComponent<Rigidbody2D>();
       _animator = GetComponent<Animator>(); 
@@ -70,7 +72,7 @@ public class BunnyController : MonoBehaviour
 
 
         //jumping
-        if (grounded && Input.GetButtonDown(jumpBtn))
+        if ((grounded) && Input.GetButtonDown(jumpBtn))
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0,jumpForce));
@@ -130,19 +132,22 @@ public class BunnyController : MonoBehaviour
                 life1UI.SetActive(false);
                 _animator.SetTrigger("Die");
                 alive = false;
+                _collider.enabled = false;
 
             } else { StartCoroutine(GotHurt()); }
         }
 
         if(alive && !hurt && (other.gameObject.CompareTag("DangerZone") || other.gameObject.CompareTag("Water") ))
         {
+            
             alive = false;
             health = 0;
+            _rigidbody.AddForce(new Vector2(-transform.localScale.x * 250, 250));
             _animator.SetTrigger("Die");
             life3UI.SetActive(false);
             life2UI.SetActive(false);
             life1UI.SetActive(false);
-            //StartCoroutine(LoadMainScreen());
+            _gameManager.PlayersLost();
         }
 
         if(alive && !hurt && other.gameObject.CompareTag("FinishLine"))
@@ -155,7 +160,6 @@ public class BunnyController : MonoBehaviour
            } else {
             _gameManager.AddScore(100);
            }
-
             _gameManager.PlayersWon();
         }
 

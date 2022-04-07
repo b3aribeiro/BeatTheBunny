@@ -15,7 +15,7 @@ public class DangerZoneController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (gameObject.tag == "Player")
+        if ( other.gameObject.CompareTag("Player") )
         {      
             _gameManager.PlayersLost();
         }

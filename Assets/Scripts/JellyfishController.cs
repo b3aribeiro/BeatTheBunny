@@ -32,6 +32,7 @@ public class JellyfishController : MonoBehaviour
     //public GameObject bulletPrefab;
     //public Transform spawnPoint;
     GameManager _gameManager;
+    public Collider2D _collider;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class JellyfishController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+        _collider = GetComponent<Collider2D>();
 
         //player controller buttons
         //atkBtn = "Attack" + playerNum;
@@ -113,20 +115,22 @@ public class JellyfishController : MonoBehaviour
                 life1UI.SetActive(false);
                 _animator.SetTrigger("Die");
                 alive = false;
-                //StartCoroutine(LoadMainScreen());
+                _collider.enabled = false;
 
             } else { StartCoroutine(GotHurt()); }
         }
 
         if(alive && !hurt && (other.gameObject.CompareTag("DangerZone") || other.gameObject.CompareTag("Water") ))
         {
+            _rigidbody.AddForce(new Vector2(-transform.localScale.x * 250, 250));
+            _gameManager.UpdateHealth(playerNum, 3);
             alive = false;
             health = 0;
             _animator.SetTrigger("Die");
             life3UI.SetActive(false);
             life2UI.SetActive(false);
             life1UI.SetActive(false);
-            //StartCoroutine(LoadMainScreen());
+            _gameManager.PlayersLost();
         }
 
         if(alive && !hurt && other.gameObject.CompareTag("FinishLine"))
@@ -140,8 +144,7 @@ public class JellyfishController : MonoBehaviour
             _gameManager.AddScore(100);
            }
 
-            //winUI.SetActive(true);
-            //StartCoroutine(LoadMainScreen());
+            _gameManager.PlayersWon();
         }
 
     }

@@ -7,7 +7,7 @@ public class CowboyPlayer : MonoBehaviour
 {
     public int playerNum = 3;
     public int health = 3;
-    public int jumpForce = 300;
+    public int jumpForce = 400;
     public int bulletForce = 400;
     public int speed = 5;
     bool alive = true;
@@ -30,6 +30,7 @@ public class CowboyPlayer : MonoBehaviour
     public GameObject bulletPrefab;
     //public GameObject youDie;
     GameManager _gameManager;
+    public Collider2D _collider;
 
     void Start()
     {
@@ -37,6 +38,7 @@ public class CowboyPlayer : MonoBehaviour
         _rigidbody =  GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+        _collider = GetComponent<Collider2D>();
     
         
         //player controller buttons
@@ -112,7 +114,8 @@ public class CowboyPlayer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
 
          if(alive && !hurt && other.gameObject.CompareTag("Enemy"))
-        {
+        { 
+            
             health--;
 
             if(health == 2)
@@ -129,18 +132,21 @@ public class CowboyPlayer : MonoBehaviour
                 life1UI.SetActive(false);
                 _animator.SetTrigger("Die");
                 alive = false;
+                _collider.enabled = false;
 
             } else { StartCoroutine(GotHurt()); }
         }
 
         if(alive && !hurt && (other.gameObject.CompareTag("DangerZone") || other.gameObject.CompareTag("Water") ))
         {
+            _rigidbody.AddForce(new Vector2(-transform.localScale.x * 250, 250));
             alive = false;
             health = 0;
             _animator.SetTrigger("Die");
             life3UI.SetActive(false);
             life2UI.SetActive(false);
             life1UI.SetActive(false);
+            _gameManager.PlayersLost();
             //StartCoroutine(LoadMainScreen());
         }
 
@@ -155,12 +161,13 @@ public class CowboyPlayer : MonoBehaviour
             _gameManager.AddScore(100);
            }
 
-            //StartCoroutine(LoadMainScreen());
+            _gameManager.PlayersWon();
         }
     }
 
     IEnumerator GotHurt()
     {
+        _rigidbody.AddForce(new Vector2(-transform.localScale.x * 250, 250));
         _animator.SetTrigger("Injured");
         hurt = true; 
         
