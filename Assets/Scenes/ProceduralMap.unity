@@ -791,6 +791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7387359072105128943, guid: c87ca22ac08d747ccb5c300ed85ddd2a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 83bd06017082647ecb6329356f289321, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c87ca22ac08d747ccb5c300ed85ddd2a, type: 3}
 --- !u!4 &274655367 stripped
@@ -1068,12 +1072,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundOver: 0
-  playersHealthBars: 
+  playersHealthBars: 030000000300000003000000
   healthText: []
-  bunnyCoinUI: {fileID: 0}
-  bunnyCoinTextUI: {fileID: 0}
-  winUI: {fileID: 0}
-  loseUI: {fileID: 0}
+  bunnyCoinUI: {fileID: 600227805}
+  bunnyCoinTextUI: {fileID: 600227807}
+  winUI: {fileID: 1695186692}
+  loseUI: {fileID: 1682679546}
 --- !u!1 &444873548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4326,7 +4330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1695186693
 Transform:
   m_ObjectHideFlags: 0
@@ -4335,7 +4339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695186692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -803.5002, y: -524.778, z: 0}
+  m_LocalPosition: {x: -803.5002, y: -523.56, z: 0}
   m_LocalScale: {x: 1.4874996, y: 1.3874998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
