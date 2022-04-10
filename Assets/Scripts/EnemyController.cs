@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
 
     public Animation starhurt;
     GameManager _gameManager;
+    public Collider2D _collider;
 
 
     void Start()
@@ -27,6 +28,8 @@ public class EnemyController : MonoBehaviour
         _player = FindObjectOfType<BunnyController>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
+        _collider = GetComponent<Collider2D>();
+        _animator = GetComponent<Animator>();
     }
 
 
@@ -41,7 +44,7 @@ public class EnemyController : MonoBehaviour
            }
 
             enemyHealth--;
-            starhurt.Play();
+            
 
             if (enemyHealth < 1)
             {
@@ -75,6 +78,7 @@ public class EnemyController : MonoBehaviour
             hurt = true;
             enemyHealth--;
             _animator.SetTrigger("Hurt");
+            starhurt.Play();
 
             if (enemyHealth < 1)
             {

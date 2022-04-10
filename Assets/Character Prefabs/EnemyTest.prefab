@@ -251,7 +251,7 @@ MonoBehaviour:
   enemyHealth: 2
   hurtSound: {fileID: 8300000, guid: 19af9baa12f2b47c48a86ccf97d6122b, type: 3}
   alive: 1
-  hurt: 0
+  hurt: 1
   starhurt: {fileID: -1988953693954473841}
 --- !u!95 &6389680840477263905
 Animator:
