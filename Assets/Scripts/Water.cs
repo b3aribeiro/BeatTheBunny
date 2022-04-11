@@ -32,7 +32,7 @@ public class Water : MonoBehaviour
     IEnumerator LoadMainScreen()
     {
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
 
         SceneManager.LoadScene("ProceduralMap");
     }
