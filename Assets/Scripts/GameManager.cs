@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         if(playersInGame != 3)
         {
             loseUI.SetActive(true);
-            StartCoroutine(LoadMainScreen());
+            StartCoroutine(LoadLostScreen());
         }
     }
 
@@ -72,19 +72,27 @@ public class GameManager : MonoBehaviour
     public void PlayersWon(){
 
         winUI.SetActive(true);
-        StartCoroutine(LoadMainScreen());
+        StartCoroutine(LoadWinScreen());
     }
 
     public void PlayersLost(){
 
         loseUI.SetActive(true);
-        StartCoroutine(LoadMainScreen());
+        StartCoroutine(LoadLostScreen());
     }
 
-     IEnumerator LoadMainScreen()
+     IEnumerator LoadLostScreen()
     {
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene("ProceduralMap");
+        SceneManager.LoadScene("YouLost");
     }
+
+    IEnumerator LoadWinScreen()
+    {
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene("Win");
+    }
+
 }

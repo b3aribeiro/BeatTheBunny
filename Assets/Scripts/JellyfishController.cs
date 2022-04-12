@@ -24,7 +24,8 @@ public class JellyfishController : MonoBehaviour
     Animator _animator;
     AudioSource _audioSource;
     public AudioClip shootsound;
-    public AudioClip jumpsound;  
+    public AudioClip jumpsound;
+    public AudioClip watersound;  
     public GameObject life1UI; 
     public GameObject life2UI; 
     public GameObject life3UI; 
@@ -131,6 +132,11 @@ public class JellyfishController : MonoBehaviour
             life2UI.SetActive(false);
             life1UI.SetActive(false);
             _gameManager.PlayersLost();
+        }
+
+        if(other.gameObject.CompareTag("Water"))
+        {
+            _audioSource.PlayOneShot(watersound);
         }
 
         if(alive && !hurt && other.gameObject.CompareTag("FinishLine"))

@@ -24,6 +24,7 @@ public class CowboyPlayer : MonoBehaviour
     AudioSource _audioSource;
     public AudioClip shootsound;
     public AudioClip jumpsound;
+    public AudioClip watersound;
     public GameObject life1UI; 
     public GameObject life2UI; 
     public GameObject life3UI; 
@@ -101,13 +102,9 @@ public class CowboyPlayer : MonoBehaviour
 
 
     private void FixedUpdate() {
+        
             grounded = Physics2D.OverlapCircle(feetPos.position, .1f, groundLayer);
             _animator.SetBool("Grounded",grounded); 
-
-            if(feetPos.position.y < -12)
-            {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
 
         }
 
@@ -147,7 +144,12 @@ public class CowboyPlayer : MonoBehaviour
             life2UI.SetActive(false);
             life1UI.SetActive(false);
             _gameManager.PlayersLost();
-            //StartCoroutine(LoadMainScreen());
+            
+        }
+
+        if(other.gameObject.CompareTag("Water"))
+        {
+            _audioSource.PlayOneShot(watersound);
         }
 
         if(alive && !hurt && other.gameObject.CompareTag("FinishLine"))
