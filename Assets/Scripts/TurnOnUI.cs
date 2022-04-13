@@ -5,10 +5,7 @@ using TMPro;
 
 public class TurnOnUI : MonoBehaviour
 {
-    //public TextMeshProUGUI 
     public GameObject gametittleUI;
-    //public GameObject bunnyLifeUI;
-    public GameObject bunnyCoinUI;
     public GameObject resetUI; 
     
     public GameObject life1UI; 
@@ -38,7 +35,6 @@ public class TurnOnUI : MonoBehaviour
             ghostlife1UI.SetActive(true);
             ghostlife2UI.SetActive(true);
             ghostlife3UI.SetActive(true);
-            bunnyCoinUI.SetActive(true);
         }
     }
 }
