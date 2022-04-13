@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Bunny.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 29770196375b6438095555f7aaabb98d
+  - enabled: 1
     path: Assets/Scenes/ProceduralMap.unity
     guid: f431e293456a138468a556f179928dd3
   - enabled: 1
@@ -17,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: c335ca3ca44ad406db7ac83e2e2f7a9c
-  - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: 29770196375b6438095555f7aaabb98d
   m_configObjects: {}
