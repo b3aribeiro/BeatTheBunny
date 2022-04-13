@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
            }
 
             enemyHealth--;
-            
+            _animator.SetTrigger("Hurt");
 
             if (enemyHealth < 1)
             {
@@ -56,8 +56,10 @@ public class EnemyController : MonoBehaviour
         }
 
         if(other.gameObject.CompareTag("Bullet")){
-           
-           enemyHealth --;
+
+            _animator.SetTrigger("Hurt");
+            enemyHealth --;
+
 
            if(enemyHealth < 1){
                Destroy(gameObject);
@@ -76,9 +78,9 @@ public class EnemyController : MonoBehaviour
         {
 
             hurt = true;
-            enemyHealth--;
-            _animator.SetTrigger("Hurt");
-            starhurt.Play();
+            
+            //_animator.SetTrigger("Hurt");
+          
 
             if (enemyHealth < 1)
             {
@@ -96,7 +98,9 @@ public class EnemyController : MonoBehaviour
     IEnumerator GotHurt()
     {
         hurt = true;
-        starhurt.Play();
+       
+        enemyHealth--;
+
         _animator.SetTrigger("Hurt");
         _rigidbody.AddForce(new Vector2(-transform.localScale.x * 200, 200));
         yield return new WaitForSeconds(.2f);

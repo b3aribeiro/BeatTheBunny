@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2817425544514789115}
   - component: {fileID: 6053957730871531260}
   - component: {fileID: 6389680840477263905}
-  - component: {fileID: -1988953693954473841}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -252,7 +251,8 @@ MonoBehaviour:
   hurtSound: {fileID: 8300000, guid: 19af9baa12f2b47c48a86ccf97d6122b, type: 3}
   alive: 1
   hurt: 1
-  starhurt: {fileID: -1988953693954473841}
+  starhurt: {fileID: 0}
+  _collider: {fileID: 0}
 --- !u!95 &6389680840477263905
 Animator:
   serializedVersion: 4
@@ -273,18 +273,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &-1988953693954473841
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4694996379342073408}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: a0a7f881949bf492bb963bb3472c2f7d, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
